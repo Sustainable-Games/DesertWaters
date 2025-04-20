@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
   .wrapper {
-    max-width: 1024px;
+    max-width: 94vw;
     margin: 0 auto;
     font:
       1.2em Helvetica,
@@ -11,57 +11,45 @@
   }
   
   .wrapper > * {
-    border: 2px solid #f08c00;
-    background-color: #ffec99;
-    border-radius: 5px;
-    padding: 10px;
+    border: 2px solid goldenrod;
+    background-color: lightyellow;
+    padding: 5px;
   }
   
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .main-head {
+  .game-head {
     grid-area: header;
   }
-  .content {
-    grid-area: content;
+  .game-map {
+    grid-area: map;
   }
-  .main-nav {
-    grid-area: nav;
+  .game-actions {
+    grid-area: actions;
   }
-  .side {
-    grid-area: sidebar;
+  .game-state {
+    grid-area: status;
   }
-  .ad {
-    grid-area: ad;
-  }
-  .main-footer {
-    grid-area: footer;
+  .game-newsticker {
+    grid-area: ticker;
   }
   
   .wrapper {
     display: grid;
-    gap: 20px;
     grid-template-areas:
       "header"
-      "nav"
-      "content"
-      "sidebar"
-      "ad"
-      "footer";
+      "status"
+      "map"
+      "actions"
+      "ticker";
   }
   
   @media (min-width: 500px) {
     .wrapper {
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 2fr 2fr;
       grid-template-areas:
         "header  header"
-        "nav     nav"
-        "sidebar content"
-        "ad      footer";
+        "status actions"
+        "map  map"
+        "ticker ticker";
     }
     nav ul {
       display: flex;
@@ -74,11 +62,7 @@
       grid-template-columns: 1fr 4fr 1fr;
       grid-template-areas:
         "header header  header"
-        "nav    content sidebar"
-        "nav    content ad"
-        "footer footer  footer";
-    }
-    nav ul {
-      flex-direction: column;
+        "actions map status"
+        "ticker ticker ticker";
     }
   }  
