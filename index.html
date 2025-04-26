@@ -9,17 +9,29 @@
 </head>
 <body>
     <div class="wrapper">
-        <header class="game-head">Desert Waters</header>
-        <div class="game-actions">Game actions</div>
-        <article class="game-map">
-          <h1>Game map</h1>
+        <header class="game-head">
+          <h1>Desert Waters</h1>
+        </header>
+        <div class="game-turn">
           <p>
-            In this layout, we display the areas in source order for any screen less
-            that 500 pixels wide. We go to a two column layout, and then to a three
-            column layout by redefining the grid, and the placement of items on the
-            grid.
+            <div class="meter-title">Year</div>
+            <meter id="turn-meter" min="2025" max="2050">Game year</meter>
+            <ul class="meter-scale">
+              <li>2025</li>
+              <li>2030</li>
+              <li>2035</li>
+              <li>2040</li>
+              <li>2045</li>
+              <li>2050</li>
+            </ul>
           </p>
-        </article>
+        </div>
+        <div class="game-actions">
+          <button id="end-turn-button" type="button">End Turn</button>
+        </div>
+        <div class="game-map">
+          <canvas id="map-canvas" width="486" height="598">A map of Arizona watersheds By SANtosito - Own work Based on File:USA Arizona location map.svg Public domain data provided by the National Atlas of the United States of America, CC-BY-SA 4.0</canvas>
+        </div>
         <div class="game-state">Game state</div>
         <footer class="game-newsticker">News ticker</footer>
       </div>

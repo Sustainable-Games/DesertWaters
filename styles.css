@@ -2,7 +2,8 @@
     box-sizing: border-box;
   }
   .wrapper {
-    max-width: 94vw;
+    position: fixed;
+    inset: 0;
     margin: 0 auto;
     font:
       1.2em Helvetica,
@@ -19,8 +20,14 @@
   .game-head {
     grid-area: header;
   }
+  .game-turn {
+    grid-area: turn;
+  }
   .game-map {
     grid-area: map;
+    height: 100%;
+    width: 100%;
+    position: relative;
   }
   .game-actions {
     grid-area: actions;
@@ -31,11 +38,35 @@
   .game-newsticker {
     grid-area: ticker;
   }
+
+  #turn-meter {
+    height: 100px;
+    width: 100%;
+    padding: 0 5px;
+  }
+
+  .meter-title {
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  #turn-meter::-webkit-meter-optimum-value {
+    background-color: blue;
+  }
   
+  .meter-scale {
+    display: flex;
+    padding: 0;
+    justify-content:space-between;
+    list-style-type: none;
+  }
+
   .wrapper {
     display: grid;
     grid-template-areas:
       "header"
+      "turn"
       "status"
       "map"
       "actions"
@@ -44,9 +75,10 @@
   
   @media (min-width: 500px) {
     .wrapper {
-      grid-template-columns: 2fr 2fr;
+      grid-template-columns: 1fr 1fr;
       grid-template-areas:
         "header  header"
+        "turn turn"
         "status actions"
         "map  map"
         "ticker ticker";
@@ -59,10 +91,11 @@
   
   @media (min-width: 700px) {
     .wrapper {
-      grid-template-columns: 1fr 4fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
         "header header  header"
-        "actions map status"
+        "turn turn turn"
+        "status map actions"
         "ticker ticker ticker";
     }
   }  
